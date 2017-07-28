@@ -3,7 +3,7 @@ import numpy as np
 import os 
 
 import cython_funcs
-pront 'cython version of list (array) copy with random index order'
+print 'cython version of list (array) copy with random index order'
 K = 2*10**3
 attemps = 5
 block_size = 200
