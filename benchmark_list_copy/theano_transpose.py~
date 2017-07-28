@@ -1,0 +1,18 @@
+import time
+import numpy as np
+import theano
+import theano.tensor as T
+print 'theano matrix transposition: regulate threading via OMP_NUM_THREADS and device'
+K = 2*10**3
+attemps = 5
+times = []
+X = T.matrix()
+f = theano.function([X], X.T)
+for _ in xrange(attemps):
+	A = np.random.randn(K, K).tolist()
+	time_start = time.time()
+	B = f(A)[0].tolist()
+	times.append(time.time() - time_start)
+print np.mean(times), np.std(times)
+		
+	

@@ -1,0 +1,18 @@
+import time
+import numpy as np
+print 'ultra-simple matrix transposition'
+K = 10**3
+attemps = 5
+times = []
+
+for _ in xrange(attemps):
+	A = np.random.randn(K, K).tolist()
+	time_start = time.time()
+	B = [[0 for _ in xrange(K)] for _ in xrange(K)]
+	for i in xrange(K):
+		for j in xrange(K):
+			B[i][j] = B[j][i]
+	times.append(time.time() - time_start)
+print np.mean(times), np.std(times)
+		
+	
